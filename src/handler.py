@@ -7,8 +7,8 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 ################ Main handler #########################
 def main(event, context):
-    logger.info(f"Test Leonardo") 
+    logger.info(f"Testing Event") 
     return {
         "statusCode": 200,
-        "body": "Hello, Leonardo!"
+        "body": "{}".format(event)
     }
