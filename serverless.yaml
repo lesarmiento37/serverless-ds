@@ -1,7 +1,7 @@
 service: devops-days-lambda-function
 useDotenv: true
 #comment
-frameworkVersion: '4'
+frameworkVersion: '3'
 
 plugins:
   - serverless-dotenv-plugin
