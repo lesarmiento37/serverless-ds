@@ -1,0 +1,4 @@
+aws-xray-sdk
+boto3
+logger
+requests

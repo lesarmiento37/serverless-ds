@@ -1,0 +1,60 @@
+service: devops-days-lambda-function
+useDotenv: true
+#comment
+frameworkVersion: '4'
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-plugin-log-retention
+  - serverless-prune-plugin
+  - serverless-step-functions
+  - serverless-plugin-aws-alerts
+  - serverless-plugin-split-stacks
+  - serverless-python-requirements
+custom:
+  environments:
+    staging: 'Staging'
+  businessImpact:
+    staging: 'Staging'
+  prune:
+    automatic: true
+    includeLayers: true
+    number: ${env:PRUNE_NUMBER}
+  pythonRequirements:
+    dockerizePip: true
+    useStaticCache: false 
+  serviceTags:
+    Managed-by: 'serverless-framework'
+    Team: 'DevOpsDays'
+    Country: 'Colombia'
+    Owner: 'Leonardo Sarmiento'
+  dotenv:
+    include: none
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: python3.10
+  runtimeManagement: auto 
+  region: ${env:REGION}
+  stackName: ${self:service}
+  stage: ${opt:stage, 'default'}
+  memorySize: 512
+  timeout: ${env:TIMEOUT}
+  logRetentionInDays: ${env:LOGS_RETENTION_DAYS}
+  stackTags: ${self:custom.serviceTags} 
+  linuxParameters:
+    capabilities:
+      add:
+        - SYS_PTRACE
+    resources:
+      ulimits:
+        nofile:
+          softLimit: 1024
+          hardLimit: 2048
+resources:
+  Resources:
+    iamRoleDevopsDaysLambdaFunction: ${file(infrastructure/iam/lambdas/iam_devops_days_lambda_function.yaml):iamRoleDevopsDaysLambdaFunction}
+functions:
+  - ${file(infrastructure/functions/devops_days_lambda_function.yaml)}

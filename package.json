@@ -1,0 +1,19 @@
+{
+  "name": "serverless-plugin-log-retention",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "serverless-offline": "^8.8.1"
+  },
+  "author": "Leonardo Sarmiento",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-plugin-aws-alerts": "^1.7.5",
+    "serverless-plugin-split-stacks": "^1.14.0",
+    "serverless-plugin-tracing": "^2.0.0",
+    "serverless-prune-plugin": "^2.1.0",
+    "serverless-python-requirements": "^6.1.1",
+    "serverless-step-functions": "^3.21.1"
+  }
+}
