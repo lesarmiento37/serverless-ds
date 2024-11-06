@@ -3,7 +3,7 @@
     handler: handler.main
     runtime: python3.10
     name: devops-days-lambda-function
-    role: iamRoleLambdaDevopsDaysLambdaFunction
+    role: iamRoleDevopsDaysLambdaFunction
     environment:
       REGION: ${env:REGION}
       LOG_LEVEL: ${env:LOG_LEVEL}
