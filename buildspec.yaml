@@ -24,4 +24,4 @@ phases:
       - npm install --save-dev serverless-dotenv-plugin
   post_build:
     commands:
-      - serverless deploy --stage $environment --verbose --force
+      - serverless deploy --stage staging --verbose --force
