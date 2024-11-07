@@ -16,9 +16,7 @@ iamRoleDevopsDaysLambdaFunction:
           Statement:
             - Effect: "Allow"
               Action:
-                - 'logs:CreateLogGroup'
-                - 'logs:CreateLogStream'
-                - 'logs:PutLogEvents'
+                - 'logs:*'
               Resource: 'arn:aws:logs:*:*:*'
       - PolicyName: "inline_policy_lambda_function_Events"
         PolicyDocument:
