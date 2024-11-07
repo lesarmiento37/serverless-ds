@@ -45,23 +45,6 @@ iamRoleDevopsDaysLambdaFunction:
                 - 'lambda:*'
               Resource: 
                 - "*"
-      - PolicyName: "inline_policy_lambda_function_secretsmanager"
-        PolicyDocument:
-          Version: "2012-10-17"
-          Statement:
-            - Effect: "Allow"
-              Action:
-                - 'secretsmanager:*'
-              Resource: 
-                - "*"
-      - PolicyName: "inline_policy_lambda_function_apigateway"
-        PolicyDocument:
-          Version: "2012-10-17"
-          Statement:
-            - Effect: "Allow"
-              Action:
-                - 'apigateway:*'
-              Resource: 
                 - "*"
 
 
