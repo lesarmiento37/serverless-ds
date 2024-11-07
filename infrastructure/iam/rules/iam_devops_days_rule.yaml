@@ -17,4 +17,4 @@ iamDevopsDaysLambdaFunctionExecution:
             - Effect: Allow
               Action:
                 - 'lambda:InvokeFunction'
-              Resource: {"Ref": DevopsDaysLambdaFunction}
+              Resource: {"Ref": "DevopsDaysLambdaFunction"}

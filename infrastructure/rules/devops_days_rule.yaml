@@ -9,9 +9,9 @@ DevopsDaysRule:
     State: ENABLED
     Targets:
       - Arn: {"Ref": DevopsDaysLambdaFunction}
-        Id: "DevopsDaysRuleExecution"
-        #RoleArn:
-        #  Fn::GetAtt: [ "iamDevopsDaysLambdaFunctionExecution", "Arn" ]
-        #RetryPolicy:
-        #  MaximumRetryAttempts: 5
-        #  MaximumEventAgeInSeconds: 60
+        Id: "devops-days-lambda-function"
+        RoleArn:
+          Fn::GetAtt: [ "iamDevopsDaysLambdaFunctionExecution", "Arn" ]
+        RetryPolicy:
+          MaximumRetryAttempts: 5
+          MaximumEventAgeInSeconds: 60
