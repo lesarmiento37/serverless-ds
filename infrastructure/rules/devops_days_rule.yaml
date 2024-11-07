@@ -4,7 +4,7 @@ DevopsDaysRule:
     EventPattern:
       source:
         - aws.s3
-    Name: devops-days-rule
+    Name: DevopsDaysRule
     State: ENABLED
     Targets:
       - Arn: >-
