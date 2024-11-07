@@ -9,7 +9,7 @@ DevopsDaysRule:
     State: ENABLED
     Targets:
       - Arn: {"Ref": DevopsDaysLambdaFunction}
-        Id: "devops-days-lambda-function"
+        Id: devops-days-lambda-function
         RoleArn:
           Fn::GetAtt: [ "iamDevopsDaysLambdaFunctionExecution", "Arn" ]
         RetryPolicy:
