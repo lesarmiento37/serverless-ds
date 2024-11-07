@@ -4,11 +4,12 @@ DevopsDaysRule:
     EventBusName: default
     EventPattern:
       source:
-        - "aws.s3"
+        - aws.s3
     Name: devops-days-rule
     State: ENABLED
     Targets:
-      - Arn: {"Ref": DevopsDaysLambdaFunction}
+      - Arn:
+          Fn::GetAtt: [ "DevopsDaysLambdaFunction", "Arn" ]
         Id: devops-days-lambda-function
         RoleArn:
           Fn::GetAtt: [ "iamDevopsDaysLambdaFunctionExecution", "Arn" ]
