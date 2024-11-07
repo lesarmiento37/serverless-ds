@@ -1,0 +1,15 @@
+  DevopsDaysTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: DevopsDaysTable
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: date
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH  
+        - AttributeName: date
+          KeyType: RANGE  
+      BillingMode: PAY_PER_REQUEST 

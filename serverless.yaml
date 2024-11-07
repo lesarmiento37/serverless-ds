@@ -47,5 +47,6 @@ provider:
 resources:
   Resources:
     iamRoleDevopsDaysLambdaFunction: ${file(infrastructure/iam/lambdas/iam_devops_days_lambda_function.yaml):iamRoleDevopsDaysLambdaFunction}
+    DevopsDaysTable: ${file(infrastructure/dynamodb/devops_days_db_table.yaml):DevopsDaysTable}
 functions:
   - ${file(infrastructure/functions/devops_days_lambda_function.yaml)}
