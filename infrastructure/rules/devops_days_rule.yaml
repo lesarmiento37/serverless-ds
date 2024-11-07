@@ -10,8 +10,8 @@ DevopsDaysRule:
       - Arn: >-
           arn:aws:lambda:us-east-1:768312754627:function:devops-days-lambda-function
         Id: devops-days-lambda-function
-        RoleArn:
-          Fn::GetAtt: [ "iamDevopsDaysLambdaFunctionExecution", "Arn" ]
-        RetryPolicy:
-          MaximumRetryAttempts: 5
-          MaximumEventAgeInSeconds: 60
+        #RoleArn:
+        #  Fn::GetAtt: [ "iamDevopsDaysLambdaFunctionExecution", "Arn" ]
+        #RetryPolicy:
+        #  MaximumRetryAttempts: 5
+        #  MaximumEventAgeInSeconds: 60
