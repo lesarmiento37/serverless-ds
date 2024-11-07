@@ -43,18 +43,11 @@ provider:
   memorySize: 512
   timeout: ${env:TIMEOUT}
   logRetentionInDays: ${env:LOGS_RETENTION_DAYS}
-  stackTags: ${self:custom.serviceTags} 
-  linuxParameters:
-    capabilities:
-      add:
-        - SYS_PTRACE
-    resources:
-      ulimits:
-        nofile:
-          softLimit: 1024
-          hardLimit: 2048
+  stackTags: ${self:custom.serviceTags}
 resources:
   Resources:
     iamRoleDevopsDaysLambdaFunction: ${file(infrastructure/iam/lambdas/iam_devops_days_lambda_function.yaml):iamRoleDevopsDaysLambdaFunction}
+    iamDevopsDaysLambdaFunctionExecution: ${file(infrastructure/iam/rules/iam_devops_days_rule.yaml):iamDevopsDaysLambdaFunctionExecution}
+    DevopsDaysRule: ${file(infrastructure/rules/devops_days_rule.yaml):DevopsDaysRule}
 functions:
   - ${file(infrastructure/functions/devops_days_lambda_function.yaml)}

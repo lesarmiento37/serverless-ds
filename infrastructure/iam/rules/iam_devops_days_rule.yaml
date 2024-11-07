@@ -1,0 +1,20 @@
+iamDevopsDaysLambdaFunctionExecution:
+  Type: 'AWS::IAM::Role'
+  Properties:
+    RoleName: "iamDevopsDaysLambdaFunctionExecution"
+    AssumeRolePolicyDocument:
+      Version: "2012-10-17"
+      Statement:
+        - Effect: Allow
+          Principal:
+            Service: "events.amazonaws.com"
+          Action: 'sts:AssumeRole'
+    Policies:
+      - PolicyName: devops_days_rule_policy
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - 'lambda:InvokeFunction'
+              Resource: {"Ref": "DevopsDaysLambdaFunction"}

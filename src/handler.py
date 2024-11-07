@@ -9,6 +9,7 @@ logger = logging.getLogger(__name__)
 def main(event, context):
     logger.info(f"Testing Event") 
     logger.info(f"{event}")
+    print(event)
     return {
         "statusCode": 200,
         "body": "{}".format(event)

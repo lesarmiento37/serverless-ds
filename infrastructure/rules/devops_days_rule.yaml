@@ -1,0 +1,17 @@
+DevopsDaysRule:
+  Type: AWS::Events::Rule
+  Properties:
+    EventBusName: default
+    EventPattern:
+      source:
+        - "aws.s3"
+    Name: devops-days-rule
+    State: ENABLED
+    Targets:
+      - Arn: {"Ref": "DevopsDaysLambdaFunction"}
+        Id: "DevopsDaysRuleExecution"
+        RoleArn:
+          Fn::GetAtt: [ "iamDevopsDaysLambdaFunctionExecution", "Arn" ]
+        RetryPolicy:
+          MaximumRetryAttempts: 5
+          MaximumEventAgeInSeconds: 60
