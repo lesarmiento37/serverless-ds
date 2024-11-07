@@ -47,7 +47,7 @@ provider:
 resources:
   Resources:
     iamRoleDevopsDaysLambdaFunction: ${file(infrastructure/iam/lambdas/iam_devops_days_lambda_function.yaml):iamRoleDevopsDaysLambdaFunction}
-    iamDevopsDaysLambdaFunctionExecution: ${file(infrastructure/iam/rules/iam_devops_days_rule.yaml):iamDevopsDaysLambdaFunctionExecution}
+    #iamDevopsDaysLambdaFunctionExecution: ${file(infrastructure/iam/rules/iam_devops_days_rule.yaml):iamDevopsDaysLambdaFunctionExecution}
     DevopsDaysRule: ${file(infrastructure/rules/devops_days_rule.yaml):DevopsDaysRule}
 functions:
   - ${file(infrastructure/functions/devops_days_lambda_function.yaml)}

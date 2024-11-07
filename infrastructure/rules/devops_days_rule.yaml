@@ -10,8 +10,8 @@ DevopsDaysRule:
     Targets:
       - Arn: {"Ref": DevopsDaysLambdaFunction}
         Id: "DevopsDaysRuleExecution"
-        RoleArn:
-          Fn::GetAtt: [ "iamDevopsDaysLambdaFunctionExecution", "Arn" ]
-        RetryPolicy:
-          MaximumRetryAttempts: 5
-          MaximumEventAgeInSeconds: 60
+        #RoleArn:
+        #  Fn::GetAtt: [ "iamDevopsDaysLambdaFunctionExecution", "Arn" ]
+        #RetryPolicy:
+        #  MaximumRetryAttempts: 5
+        #  MaximumEventAgeInSeconds: 60
