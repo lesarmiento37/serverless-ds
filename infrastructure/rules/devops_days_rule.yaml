@@ -8,7 +8,7 @@ DevopsDaysRule:
     Name: devops-days-rule
     State: ENABLED
     Targets:
-      - Arn: {"Ref": "DevopsDaysLambdaFunction"}
+      - Arn: {"Ref": DevopsDaysLambdaFunction}
         Id: "DevopsDaysRuleExecution"
         RoleArn:
           Fn::GetAtt: [ "iamDevopsDaysLambdaFunctionExecution", "Arn" ]
