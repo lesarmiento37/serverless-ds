@@ -5,7 +5,7 @@ frameworkVersion: '3'
 
 plugins:
   - serverless-dotenv-plugin
-  - serverless-plugin-log-retention
+ # - serverless-plugin-log-retention
   - serverless-prune-plugin
   - serverless-step-functions
   - serverless-plugin-aws-alerts
