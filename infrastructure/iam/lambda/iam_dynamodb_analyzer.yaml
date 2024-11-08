@@ -1,0 +1,49 @@
+iamRoleDynamoDBAnalyzerLambdaFunction:
+  Type: 'AWS::IAM::Role'
+  Properties:
+    RoleName: iamRoleDynamoDBAnalyzerLambdaFunction
+    AssumeRolePolicyDocument:
+      Version: "2012-10-17"
+      Statement:
+        - Effect: "Allow"
+          Principal:
+            Service: "lambda.amazonaws.com"
+          Action: 'sts:AssumeRole'
+    Policies:
+      - PolicyName: "inline_policy_lambda_function_cw_logs"
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: "Allow"
+              Action:
+                - 'logs:*'
+              Resource: 'arn:aws:logs:*:*:*'
+      - PolicyName: "inline_policy_lambda_function_Events"
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: "Allow"
+              Action:
+                - 'events:*'
+              Resource: 
+                - "*"
+      - PolicyName: "inline_policy_lambda_function_ssm"
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: "Allow"
+              Action:
+                - 'ssm:*'
+              Resource: 
+                - "*"  
+      - PolicyName: "inline_policy_lambda_function_lambda"
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: "Allow"
+              Action:
+                - 'lambda:*'
+              Resource: 
+                - "*"
+
+

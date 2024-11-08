@@ -46,7 +46,13 @@ provider:
   stackTags: ${self:custom.serviceTags}
 resources:
   Resources:
-    iamRoleDevopsDaysLambdaFunction: ${file(infrastructure/iam/lambdas/iam_devops_days_lambda_function.yaml):iamRoleDevopsDaysLambdaFunction}
+    iamRoleS3toDynamoDBLambdaFunction: ${file(infrastructure/iam/lambda/iam_s3_to_dynamodb.yaml):iamRoleS3toDynamoDBLambdaFunction}
+    iamRoleDynamoDBAnalyzerLambdaFunction: ${file(infrastructure/iam/lambda/iam_dynamodb_analyzer.yaml):iamRoleDynamoDBAnalyzerLambdaFunction}
     DevopsDaysTable: ${file(infrastructure/dynamodb/devops_days_db_table.yaml):DevopsDaysTable}
 functions:
-  - ${file(infrastructure/functions/devops_days_lambda_function.yaml)}
+  - ${file(infrastructure/lambdas/s3_to_dynamodb.yaml)}
+  - ${file(infrastructure/lambdas/dynamodb_analyzer.yaml)}
+stepFunctions:
+  stateMachines:
+    S3DynamodbAnalyzer:
+      ${file(infrastructure/lambdas/s3_dynamo_analyzer.yaml)}

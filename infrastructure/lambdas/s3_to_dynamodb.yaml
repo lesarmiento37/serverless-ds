@@ -1,0 +1,13 @@
+  S3toDynamoDBLambdaFunction:
+    module: src/event_processor
+    handler: handler.main
+    runtime: python3.10
+    name: s3-to-dynamodb-lambda-function
+    role: iamRoleS3toDynamoDBLambdaFunction
+    environment:
+      REGION: ${env:REGION}
+      LOG_LEVEL: ${env:LOG_LEVEL}
+      LOG_FORMAT: ${env:LOG_FORMAT}
+
+
+ 

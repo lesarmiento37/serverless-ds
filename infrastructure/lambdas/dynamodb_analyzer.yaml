@@ -1,0 +1,13 @@
+  DynamoDBAnalyzerLambdaFunction:
+    module: src/dynamodb_analyzer
+    handler: handler.main
+    runtime: python3.10
+    name: dynamodb_analyzer-lambda-function
+    role: iamRoleDynamoDBAnalyzerLambdaFunction
+    environment:
+      REGION: ${env:REGION}
+      LOG_LEVEL: ${env:LOG_LEVEL}
+      LOG_FORMAT: ${env:LOG_FORMAT}
+
+
+ 

@@ -1,7 +1,7 @@
-iamRoleDevopsDaysLambdaFunction:
+iamRoleS3toDynamoDBLambdaFunction:
   Type: 'AWS::IAM::Role'
   Properties:
-    RoleName: iamRoleDevopsDaysLambdaFunction
+    RoleName: iamRoleS3toDynamoDBLambdaFunction
     AssumeRolePolicyDocument:
       Version: "2012-10-17"
       Statement:
@@ -44,7 +44,6 @@ iamRoleDevopsDaysLambdaFunction:
               Action:
                 - 'lambda:*'
               Resource: 
-                - "*"
                 - "*"
 
 
