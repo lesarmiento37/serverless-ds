@@ -1,5 +1,5 @@
   DevopsDaysLambdaFunction:
-    module: src
+    module: src/event_processor
     handler: handler.main
     runtime: python3.10
     name: devops-days-lambda-function
