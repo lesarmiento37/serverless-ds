@@ -55,4 +55,23 @@ functions:
 stepFunctions:
   stateMachines:
     S3DynamodbAnalyzer:
-      ${file(infrastructure/step_functions/s3_dynamo_analyzer.yaml)}
+      events:
+        - eventBridge:
+            pattern:
+              source:
+                - aws.s3
+      name: s3-dynamodb-analyzer
+      definition:
+        Comment: "S3 Events to DynamoDb Analyzer"
+        StartAt: S32DynamoDB
+        States:
+          S32DynamoDB:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [ S3toDynamoDBLambdaFunction, Arn ]
+            Next: DynamoDBAnalyzer
+          DynamoDBAnalyzer:
+            Type: Task
+            Resource: 
+              Fn::GetAtt: [ DynamoDBAnalyzerLambdaFunction, Arn ]
+            End: true

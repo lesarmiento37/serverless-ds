@@ -4,7 +4,7 @@
           pattern:
             source:
               - aws.s3
-    name: d3-dynamodb-analyzer
+    name: s3-dynamodb-analyzer
     definition:
       Comment: "S3 Events to DynamoDb Analyzer"
       StartAt: S32DynamoDB
