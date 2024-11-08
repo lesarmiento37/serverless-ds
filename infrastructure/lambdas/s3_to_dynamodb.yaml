@@ -1,5 +1,5 @@
   S3toDynamoDBLambdaFunction:
-    module: src/event_processor
+    module: src/s3_to_dynamodb
     handler: handler.main
     runtime: python3.10
     name: s3-to-dynamodb-lambda-function
