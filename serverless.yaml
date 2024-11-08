@@ -55,4 +55,4 @@ functions:
 stepFunctions:
   stateMachines:
     S3DynamodbAnalyzer:
-      ${file(infrastructure/lambdas/s3_dynamo_analyzer.yaml)}
+      ${file(infrastructure/step_functions/s3_dynamo_analyzer.yaml)}
