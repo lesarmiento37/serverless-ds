@@ -56,8 +56,8 @@ stepFunctions:
   stateMachines:
     S3DynamodbAnalyzer:
       events:
-        - eventBridge:
-            pattern:
+        - cloudwatchEvent:
+            event:
               source:
                 - aws.s3
       name: s3-dynamodb-analyzer
