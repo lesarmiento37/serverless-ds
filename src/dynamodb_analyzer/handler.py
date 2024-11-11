@@ -4,8 +4,11 @@ import boto3
 import pandas as pd
 
 def main(event, context):
-    # Parse JSON data
-    json_data = json.loads(event)
+    # Check if event is a string before parsing
+    if isinstance(event, str):
+        json_data = json.loads(event)  # Parse string to JSON (dict)
+    else:
+        json_data = event
     # Normalize JSON data
     df_data = pd.json_normalize(json_data, meta=['id', 'date','detail-type','object_name''object_size'])
     print(df_data)
