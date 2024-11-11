@@ -24,7 +24,7 @@ def main(event, context):
     'date': table_date,
     'detail-type': table_dtype,
     'object_name': table_key,
-    'object_size': table_size
+    'object_size': table_size,
     }
     
     print(item)
