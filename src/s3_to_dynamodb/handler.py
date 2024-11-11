@@ -26,9 +26,11 @@ def main(event, context):
     'object_name': table_key,
     'object_size': table_size
     }
-
+    
+    print(item)
+    print(type(item))
     # Put Item
-    table.put_item(Item=item)
+    table.put_item(Item=json.dumps(item))
 
     # Item Acknowledge
     print("Data inserted successfully!")
