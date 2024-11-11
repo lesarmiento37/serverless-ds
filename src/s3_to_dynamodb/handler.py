@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 ################ Main handler #########################
 def main(event, context):
-    dynamo_table = os.getenv(['DYNAMODB_TABLE'])
+    dynamo_table = os.getenv('DYNAMODB_TABLE')
     dynamodb = boto3.resource('dynamodb', region_name='us-east-1') 
     table = dynamodb.Table(dynamo_table)
     # Table Data
@@ -30,7 +30,7 @@ def main(event, context):
     print(item)
     print(type(item))
     # Put Item
-    table.put_item(Item=json.dumps(item))
+    table.put_item(Item=item)
 
     # Item Acknowledge
     print("Data inserted successfully!")
