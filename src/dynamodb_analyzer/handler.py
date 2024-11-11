@@ -9,11 +9,16 @@ def main(event, context):
         json_data = json.loads(event)  # Parse string to JSON (dict)
     else:
         json_data = event
-    # Normalize JSON data
-    df_data = pd.json_normalize(json_data, meta=['id', 'date','detail-type','object_name''object_size'])
-    print(df_data)
+    print(json_data)
+    print(type(json_data))
+    print("prueba")
+    json_data_cv = json.loads(json_data['body'])
+    print(json_data_cv)
+    print("event")
+    df_event = pd.DataFrame(json_data_cv)
+    print(df_event)
     # Detail Type Staticstics
-    dtype_values = df_data['detail-type'].value_counts()
+    dtype_values = df_event['detail-type'].value_counts()
     print(dtype_values)
     # json response
     values_response = json.dumps(dtype_values.to_dict())
