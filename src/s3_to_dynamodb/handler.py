@@ -16,8 +16,7 @@ def main(event, context):
     table_date = event['time']
     table_dtype = event['detail-type']
     table_key = event['detail']['object']['key']
-    table_size = event['detail']['object']['size']
-
+    
     #Item Mapping
     item = {
     'id': table_id,
